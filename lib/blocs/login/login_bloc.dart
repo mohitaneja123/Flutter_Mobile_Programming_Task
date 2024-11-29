@@ -22,12 +22,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
 
     on<LoginSubmitted>((event, emit) async {
-      if (event.username.isEmpty) {
-        emit(LoginUninitialized()); // Emit a temporary state
+      if (event.username.isEmpty && event.password.isEmpty) {
+        emit(LoginUninitialized());
+        emit(LoginFailure(error: "Please enter your credentials"));
+        return;
+      } else if (event.username.isEmpty) {
+        emit(LoginUninitialized());
         emit(LoginFailure(error: "Please enter your username"));
         return;
       } else if (event.password.isEmpty) {
-        emit(LoginUninitialized()); // Emit a temporary state
+        emit(LoginUninitialized());
         emit(LoginFailure(error: "Please enter your password"));
         return;
       }

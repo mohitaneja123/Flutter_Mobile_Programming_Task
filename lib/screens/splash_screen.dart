@@ -43,10 +43,18 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FlutterLogo(size: 100),
+              Container(
+                height: 80,
+                color: Colors.black87,
+                margin: EdgeInsets.all(10.0),
+                child: Image.asset(
+                  'assets/images/logo_MP.png',
+                  alignment: Alignment.center,
+                ),
+              ),
               SizedBox(height: 20),
               Text(
-                'Welcome to Flutter BLoC App',
+                'Welcome to Mobile Programming',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ],
