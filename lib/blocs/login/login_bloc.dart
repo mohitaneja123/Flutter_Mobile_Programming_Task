@@ -22,15 +22,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     });
 
     on<LoginSubmitted>((event, emit) async {
-      if (event.username.isEmpty && event.password.isEmpty) {
+      if (event.username!.isEmpty && event.password!.isEmpty) {
         emit(LoginUninitialized());
         emit(LoginFailure(error: "Please enter your credentials"));
         return;
-      } else if (event.username.isEmpty) {
+      } else if (event.username!.isEmpty) {
         emit(LoginUninitialized());
         emit(LoginFailure(error: "Please enter your username"));
         return;
-      } else if (event.password.isEmpty) {
+      } else if (event.password!.isEmpty) {
         emit(LoginUninitialized());
         emit(LoginFailure(error: "Please enter your password"));
         return;
@@ -38,9 +38,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(LoginLoading());
       try {
         bool isSuccess = await loginRepository.authenticate(
-          username: event.username,
-          password: event.password,
-          isRemember: event.rememberMe,
+          username: event.username!,
+          password: event.password!,
+          isRemember: event.rememberMe!,
         );
         if (isSuccess) {
           final token = await loginRepository.getToken();
