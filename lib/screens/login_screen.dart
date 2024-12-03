@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mptask/blocs/login/login_state.dart';
+import 'package:mptask/constants.dart';
 import '../blocs/login/login_bloc.dart';
 import '../blocs/login/login_event.dart';
 import 'home_screen.dart';
@@ -103,7 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 value: _rememberMe,
                 onChanged: (value) => setState(() => _rememberMe = value ?? false),
               ),
-              Text('Remember Me'),
+              Text(Constants.rememberme),
             ],
           ),
           SizedBox(height: 20),

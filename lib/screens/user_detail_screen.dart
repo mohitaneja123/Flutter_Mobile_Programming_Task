@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../constants.dart';
 import '../models/user_model.dart';
 
 import 'package:flutter/material.dart';
@@ -11,9 +12,9 @@ class UserDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("User Details")),
+      appBar: AppBar(title: Text(Constants.userdetails,)),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,10 +43,10 @@ class UserDetailScreen extends StatelessWidget {
 
   Widget _buildDetailRow(String label, String value) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
+      padding: EdgeInsets.only(bottom: 8.0),
       child: Text(
         '$label: $value',
-        style: const TextStyle(fontSize: 18),
+        style: TextStyle(fontSize: 18),
       ),
     );
   }
@@ -53,7 +54,7 @@ class UserDetailScreen extends StatelessWidget {
   Widget _buildSectionHeader(String title) {
     return Text(
       title,
-      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
     );
   }
 
@@ -61,8 +62,8 @@ class UserDetailScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('${address.suite}, ${address.street}', style: const TextStyle(fontSize: 16)),
-        Text('${address.city}, ${address.zipcode}', style: const TextStyle(fontSize: 16)),
+        Text('${address.suite}, ${address.street}', style: TextStyle(fontSize: 16)),
+        Text('${address.city}, ${address.zipcode}', style: TextStyle(fontSize: 16)),
       ],
     );
   }
@@ -71,8 +72,8 @@ class UserDetailScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(company.name, style: const TextStyle(fontSize: 16)),
-        Text(company.catchPhrase, style: const TextStyle(fontSize: 16)),
+        Text(company.name, style: TextStyle(fontSize: 16)),
+        Text(company.catchPhrase, style: TextStyle(fontSize: 16)),
       ],
     );
   }

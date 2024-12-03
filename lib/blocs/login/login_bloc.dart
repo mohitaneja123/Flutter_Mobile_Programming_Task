@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mptask/constants.dart';
 import '../../repositories/authentication_repository.dart';
 import 'login_event.dart';
 import 'login_state.dart';
@@ -24,15 +25,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginSubmitted>((event, emit) async {
       if (event.username!.isEmpty && event.password!.isEmpty) {
         emit(LoginUninitialized());
-        emit(LoginFailure(error: "Please enter your credentials"));
+        emit(LoginFailure(error: Constants.enteryourcredentials));
         return;
       } else if (event.username!.isEmpty) {
         emit(LoginUninitialized());
-        emit(LoginFailure(error: "Please enter your username"));
+        emit(LoginFailure(error:  Constants.enteryourusername));
         return;
       } else if (event.password!.isEmpty) {
         emit(LoginUninitialized());
-        emit(LoginFailure(error: "Please enter your password"));
+        emit(LoginFailure(error: Constants.enteryourpassword));
         return;
       }
       emit(LoginLoading());
@@ -46,10 +47,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           final token = await loginRepository.getToken();
           emit(LoginAuthenticated(token: token!));
         } else {
-          emit(LoginFailure(error: "Please enter valid credentials"));
+          emit(LoginFailure(error: Constants.entervalidcredentials));
         }
       } catch (e) {
-        emit(LoginFailure(error: "An unexpected error occurred"));
+        emit(LoginFailure(error: Constants.unexpectederroroccurred));
       }
     });
   }
