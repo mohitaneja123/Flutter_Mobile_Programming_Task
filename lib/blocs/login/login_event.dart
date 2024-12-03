@@ -17,6 +17,3 @@ class LoginSubmitted extends LoginEvent {
   @override
   List<Object> get props => [username, password,rememberMe];
 }
-class AutoLogin extends LoginEvent {}
-
-class LogoutRequested extends LoginEvent {}

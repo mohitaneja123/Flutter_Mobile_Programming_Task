@@ -52,11 +52,5 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         emit(LoginFailure(error: "An unexpected error occurred"));
       }
     });
-
-    on<LogoutRequested>((event, emit) async {
-      emit(LoginLoading());
-      await loginRepository.clearToken();
-      emit(LoginUnauthenticated());
-    });
   }
 }
