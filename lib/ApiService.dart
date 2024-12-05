@@ -1,19 +1,17 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../constants.dart';
-import '../models/user_model.dart';
+import 'constants.dart';
+import 'models/user_model.dart';
 
-class UserRepository {
+class ApiService {
   final String baseUrl;
 
-  UserRepository({this.baseUrl = Constants.jsonresponseurl});
-
-
+  ApiService({this.baseUrl = Constants.jsonresponseurl});
 
   Future<List<User>> fetchUsers() async {
-      final uri = Uri.parse('$baseUrl/users');
-      final response = await http.get(uri);
-      try {
+    final uri = Uri.parse('$baseUrl/users');
+    final response = await http.get(uri);
+    try {
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
         return data.map((json) => User.fromJson(json)).toList();

@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ? CircularProgressIndicator()
               : ElevatedButton(
             onPressed: _onLoginPressed,
-            child: Text("Login"),
+            child: Text('Login'),
           ),
         ],
       ),

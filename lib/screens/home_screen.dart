@@ -5,7 +5,7 @@ import 'package:mptask/constants.dart';
 import 'package:mptask/screens/user_detail_screen.dart';
 import '../blocs/users/user_bloc.dart';
 import '../blocs/users/user_state.dart';
-import '../models/user_model.dart'; // Import your UserBloc and events
+import '../models/user_model.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     context.read<UserBloc>().add(FetchUsers());
 
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen')),
+      appBar: AppBar(title: const Text('Home Screen')),
       body: BlocBuilder<UserBloc, UserState>(
         builder: (context, state) {
           if (state is UserLoading) {
@@ -37,7 +37,7 @@ class HomeScreen extends StatelessWidget {
     return Center(child: Text('Failed to load users: $error'));
   }
   Widget buildNoUsers() {
-    return Center(child: Text(Constants.nousersavaliable));
+    return Center(child: const Text(Constants.nousersavaliable));
   }
   Widget buildUserList(BuildContext context, List<User> users) {
     return RefreshIndicator(

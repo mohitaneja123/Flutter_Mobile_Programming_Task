@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../models/user_model.dart';
 
-import 'package:flutter/material.dart';
-
 class UserDetailScreen extends StatelessWidget {
   final User user;
 
